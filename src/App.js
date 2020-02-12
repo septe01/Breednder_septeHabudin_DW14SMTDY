@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import Content from './component/Content';
 
+//dashboar
+// import Dashboard from './component/dashboad/Dashboard'
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="">
-        {/* <Header /> */}
+        {/* lanading */}
         <Content />
-        {/* <Footer /> */}
+        
+        {/* dashboard */}
+        {/* <Dashboard/> */}
       </div>
     );
   }

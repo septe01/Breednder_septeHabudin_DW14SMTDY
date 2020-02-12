@@ -3,6 +3,7 @@ import { Row,Col,Navbar,Nav,Form} from 'react-bootstrap'; //import component boo
 import Container from 'react-bootstrap/Container';
 // import Modal from 'react-bootstrap/Modal'
 import Login from './modal/Login'
+import Register from './modal/Register'
 
 
 
@@ -47,9 +48,8 @@ class Content extends Component {
                 <p>by clicking enter, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
               </Col>
             </Row>
-              <button className="btn-reg color-bg color" variant="outline-success">
-                Register
-              </button>
+              
+              <Register/>
           </Container>
 
           <Container fluid className="footer color-bg">

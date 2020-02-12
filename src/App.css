@@ -167,7 +167,8 @@
   background-color: #E6E6E6 !important;
 }
 .modal-content{
-  width: 70% !important;
+  width: 85% !important;
+  /* width: 524px !important; */
   margin: auto !important;
   min-height: 350px;
 }
@@ -182,13 +183,20 @@
 }
 .head-modal h1{
   margin-top: 30px;
-  font-weight: 800 !important;
+  font-weight: 900 !important;
   box-sizing: border-box;
+  color: rgba(0,0,0,.7) !important;
 }
-/* 
 
-padding-top: 10px;
-padding-bottom: 10px; */
+.body-modal{
+  padding-bottom: 40px;
+}
+
+/* dashboard */
+
+.panel-righ-dash{
+  background-image: url("./assets/images/bgmain.jpg");
+}
 
 @keyframes App-logo-spin {
   from {

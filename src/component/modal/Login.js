@@ -94,7 +94,7 @@ function Login() {
                 </Form.Group>
                 
               <button className="btn-log-mdl color-bg color" variant="outline-success">
-                Register
+                Login
               </button>
               </Form>
             </Col>
