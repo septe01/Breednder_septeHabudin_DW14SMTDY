@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Row,Col,Navbar,Nav,Form,Button} from 'react-bootstrap'; //import component bootstaps
+import { Row,Col,Navbar,Nav,Form} from 'react-bootstrap'; //import component bootstaps
 import Container from 'react-bootstrap/Container';
 // import Modal from 'react-bootstrap/Modal'
-// import Login from './modal/login';
+import Login from './modal/Login'
 
 
 
@@ -31,8 +31,8 @@ class Content extends Component {
                   <Nav className="mr-auto">
                   </Nav>
                   <Form inline>
-                    <Button className=" btn-log color-bg color">Login</Button>
-                    {/* <Login /> */}
+                    {/* <Button className=" btn-log color-bg color">Login</Button> */}
+                    <Login />
                   </Form>
                 </Navbar.Collapse>
             </Navbar>
