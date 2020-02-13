@@ -528,6 +528,17 @@ input.input-nav-dash{
   text-align: right !important;
 }
 
+/* profile */
+
+
+.panel-left-dash-header h1.arrow-back{
+  float: left !important;
+  margin-left: -20px;
+  margin-right: 10px;
+  font-weight: 800;
+  line-height: 2.2  !important;
+}
+
 /* .img-select-icon{
   line-height: inherit;
   width: 30px !important;

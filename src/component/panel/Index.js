@@ -4,6 +4,7 @@ import {Row,Col,Card,Nav } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faChevronDown,faMapMarkerAlt,faInfoCircle, faArrowAltCircleLeft,faArrowAltCircleRight,faArrowAltCircleUp,faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
 import Navbar from 'react-bootstrap/Navbar'
+import { Link } from 'react-router-dom';
 
 
 
@@ -125,18 +126,21 @@ class Index extends Component {
               <div className="panel-left-dash">
                 <div className="panel-left-dash-header">
                   <div className="profile">
-                    <Row>
-                      <Col md={"auto"}>
-                        <img src={process.env.PUBLIC_URL+"../assets/images/profile.jpeg"}
-                        width="250"
-                        height="50"
-                        className="d-inline-block align-top"
-                        alt="MyLogo"
-                        />
+                    <Link to="/profile">
+                      <Row>
+                        <Col md={"auto"}>
+                          <img src={process.env.PUBLIC_URL+"../assets/images/profile.jpeg"}
+                          width="250"
+                          height="50"
+                          className="d-inline-block align-top"
+                          alt="MyLogo"
+                          style={{cursor:"pointer"}}
+                          />
 
-                        <h1 className="color nama-profile">Gerry <FontAwesomeIcon icon={faChevronDown} style={{color:"rgba(0,0,0,.7)",marginLeft:"20",boxSizing:"border-box"}}/></h1>
-                      </Col>
-                    </Row>
+                          <h1 className="color nama-profile">Gerry <FontAwesomeIcon icon={faChevronDown} style={{color:"rgba(0,0,0,.7)",marginLeft:"20",boxSizing:"border-box"}}/></h1>
+                        </Col>
+                      </Row>
+                    </Link>  
                   </div>
                 </div>
 

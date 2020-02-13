@@ -3,6 +3,7 @@ import Landing from './component/Landing';
 
 //dashboar
 import Index from './component/panel/Index'
+import Profile from './component/panel/Profile'
 
 import './App.css';
 //Router
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+
         {/* <div className=""> */}
           {/* lanading */}
           {/* <Landing /> */}
@@ -24,10 +26,15 @@ class App extends Component {
           {/* Index */}
           {/* <Index/> */}
         {/* </div> */}
+
+
         <div className="">
           <Switch>
             <Route path="/index">
               <Index/>
+            </Route>
+            <Route path="/profile">
+              <Profile/>
             </Route>
 
             <Route path="/">
