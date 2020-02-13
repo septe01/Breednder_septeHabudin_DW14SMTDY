@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 // import Modal from 'react-bootstrap/Modal'
 import LoginModal from './modal/LoginModal'
 import RegisterModal from './modal/RegisterModal'
+// import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 
@@ -48,7 +49,7 @@ class Landing extends Component {
                 <p>by clicking enter, you agree to our terms. Learn how we process your data in our Privacy Policy and Cookie Policy.</p>
               </Col>
             </Row>
-              
+              {/* <Router><Link to="/sadfasd">index</Link></Router> */}
               <RegisterModal/>
           </Container>
 

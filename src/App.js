@@ -1,21 +1,42 @@
 import React, { Component } from 'react';
-// import Landing from './component/Landing';
+import Landing from './component/Landing';
 
 //dashboar
 import Index from './component/panel/Index'
 
 import './App.css';
+//Router
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom"
 
 class App extends Component {
   render() {
     return (
-      <div className="">
-        {/* lanading */}
-        {/* <Landing /> */}
-        
-        {/* Index */}
-        <Index/>
-      </div>
+      <Router>
+        {/* <div className=""> */}
+          {/* lanading */}
+          {/* <Landing /> */}
+          
+          {/* Index */}
+          {/* <Index/> */}
+        {/* </div> */}
+        <div className="">
+          <Switch>
+            <Route path="/index">
+              <Index/>
+            </Route>
+
+            <Route path="/">
+              <Landing />
+            </Route>
+
+          </Switch>
+          </div>
+      </Router>
     );
   }
 }

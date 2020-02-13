@@ -52,6 +52,7 @@ import React, {useState } from 'react';
 // import {Button,Modal} from './react/bootstrap';
 import { Button,Row,Col,Container,Form} from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal'
+import { Link } from 'react-router-dom';
 
 
 function LoginModal() {
@@ -92,10 +93,13 @@ function LoginModal() {
                 <Form.Group controlId="formBasicPassword">
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                
-              <button className="btn-log-mdl color-bg color" variant="outline-success">
-                Login
-              </button>
+              
+              <Link to="index">
+                <button className="btn-log-mdl color-bg color" variant="outline-success">
+                  Login
+                </button>
+              </Link>
+
               </Form>
             </Col>
           </Row>
