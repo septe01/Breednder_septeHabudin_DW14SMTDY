@@ -54,7 +54,7 @@ import { Button,Row,Col,Container,Form} from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal'
 
 
-function Login() {
+function LoginModal() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -108,7 +108,7 @@ function Login() {
 }
 
 
-export default Login;
+export default LoginModal;
 
 // <Modal.Footer>
 //           <Button variant="secondary" onClick={handleClose}>

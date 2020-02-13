@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Content from './component/Content';
+// import Landing from './component/Landing';
 
 //dashboar
-// import Dashboard from './component/dashboad/Dashboard'
+import Index from './component/dashboad/Index'
 
 import './App.css';
 
@@ -11,10 +11,10 @@ class App extends Component {
     return (
       <div className="">
         {/* lanading */}
-        <Content />
+        {/* <Landing /> */}
         
-        {/* dashboard */}
-        {/* <Dashboard/> */}
+        {/* Index */}
+        <Index/>
       </div>
     );
   }

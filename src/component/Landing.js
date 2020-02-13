@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Row,Col,Navbar,Nav,Form} from 'react-bootstrap'; //import component bootstaps
 import Container from 'react-bootstrap/Container';
 // import Modal from 'react-bootstrap/Modal'
-import Login from './modal/Login'
-import Register from './modal/Register'
+import LoginModal from './modal/LoginModal'
+import RegisterModal from './modal/RegisterModal'
 
 
 
@@ -11,7 +11,7 @@ import Register from './modal/Register'
 
 
 
-class Content extends Component {
+class Landing extends Component {
   render() {
     return (
       <div className="App-header image">
@@ -33,7 +33,7 @@ class Content extends Component {
                   </Nav>
                   <Form inline>
                     {/* <Button className=" btn-log color-bg color">Login</Button> */}
-                    <Login />
+                    <LoginModal />
                   </Form>
                 </Navbar.Collapse>
             </Navbar>
@@ -49,7 +49,7 @@ class Content extends Component {
               </Col>
             </Row>
               
-              <Register/>
+              <RegisterModal/>
           </Container>
 
           <Container fluid className="footer color-bg">
@@ -63,4 +63,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default Landing;
