@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import Landing from './component/Landing';
 
 //dashboar
-import Index from './component/dashboad/Index'
+import Index from './component/panel/Index'
 
 import './App.css';
 

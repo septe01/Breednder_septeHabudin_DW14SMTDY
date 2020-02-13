@@ -10,6 +10,112 @@ import Navbar from 'react-bootstrap/Navbar'
 
 class Index extends Component {
   render() {
+    const dataUser = [
+      {
+        id:1,
+        nama:"meow",
+        image:"1.jpeg"
+      },
+      {
+        id:2,
+        nama:"mumu",
+        image:"3.jpeg"
+      },
+      {
+        id:3,
+        nama:"maow",
+        image:"5.jpeg"
+      },
+      {
+        id:4,
+        nama:"moomu",
+        image:"2.jpeg"
+      },
+      {
+        id:5,
+        nama:"mimi",
+        image:"5.jpeg"
+      },
+      {
+        id:6,
+        nama:"mimiw",
+        image:"3.jpeg"
+      },
+      {
+        id:7,
+        nama:"mimow",
+        image:"2.jpeg"
+      },
+      {
+        id:8,
+        nama:"momew",
+        image:"1.jpeg"
+      },
+      {
+        id:9,
+        nama:"mumuw",
+        image:"3.jpeg"
+      },
+      {
+        id:10,
+        nama:"mimew",
+        image:"2.jpeg"
+      },
+      {
+        id:11,
+        nama:"moew",
+        image:"1.jpeg"
+      },
+      {
+        id:12,
+        nama:"mumuw",
+        image:"3.jpeg"
+      },
+      {
+        id:13,
+        nama:"ma'aow",
+        image:"5.jpeg"
+      },
+      {
+        id:14,
+        nama:"moomuw",
+        image:"2.jpeg"
+      },
+      {
+        id:15,
+        nama:"mimil",
+        image:"5.jpeg"
+      },
+      {
+        id:16,
+        nama:"momiw",
+        image:"3.jpeg"
+      },
+      {
+        id:17,
+        nama:"mimow",
+        image:"2.jpeg"
+      },
+      {
+        id:18,
+        nama:"meong",
+        image:"1.jpeg"
+      },
+      {
+        id:19,
+        nama:"eong",
+        image:"3.jpeg"
+      },
+      {
+        id:20,
+        nama:"memei",
+        image:"2.jpeg"
+      }
+    ]
+
+    // dataUser.map((usr)=>
+    //   console.log(usr)
+    // )
     return (
       <div>
         <section className="container-dashboard">
@@ -37,8 +143,8 @@ class Index extends Component {
                 <div className="panel-left-dash-opsi"><h3 className="color">Match</h3></div>
 
                 <div className="panel-left-dash-body">
-                  <div className="profile">
-                    <Row className="justify-content-left">
+                  <div className="list-user1">
+                    <Row className="justify-content-left list-user2">
                       
                       <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
                           <Card className="card-left-dash">
@@ -96,14 +202,132 @@ class Index extends Component {
                           <Card className="card-left-dash">
                             <Card.Body className="card-thumb">
                              <div className="galery-tumbnail">
-                               <img src={require('../../assets/images/galery/5.jpeg')}
+                               <img src={require('../../assets/images/galery/1.jpeg')}
                                className="d-inline-block align-top"
                                alt="MyLogo"/>
-                               <h4 className="color-white">Muncul</h4>
+                               <h4 className="color-white">Meow</h4>
                              </div>
                             </Card.Body>
                           </Card>
                       </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/2.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Mimiw</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/3.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Momow</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/4.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Mumoo</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/1.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Meow</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/2.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Mimiw</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/3.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Momow</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/4.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Mumoo</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/3.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Momow</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+                      
+                      <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
+                          <Card className="card-left-dash">
+                            <Card.Body className="card-thumb">
+                             <div className="galery-tumbnail">
+                               <img src={require('../../assets/images/galery/4.jpeg')}
+                               className="d-inline-block align-top"
+                               alt="MyLogo"/>
+                               <h4 className="color-white">Mumoo</h4>
+                             </div>
+                            </Card.Body>
+                          </Card>
+                      </Col>
+
                     </Row>
                   </div>
                 </div>

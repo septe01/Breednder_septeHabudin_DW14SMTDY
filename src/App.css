@@ -305,6 +305,20 @@
   filter: drop-shadow(2px 0 2px rgba(0,0,0,.7));
 }
 
+.list-user1{
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid green; */
+    overflow: hidden;
+}
+.list-user2{
+    width: 108%;
+    height: 420px;
+    /* border: 1px solid blue; */
+    overflow: auto;
+    /* padding-right: 15px; */
+}
+
 .card-left-dash{
   border-radius: .4rem !important;
   overflow: hidden;
