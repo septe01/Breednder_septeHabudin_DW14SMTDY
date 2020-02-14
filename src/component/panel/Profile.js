@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {Row,Col,Card,Navbar,Nav} from 'react-bootstrap'
+import {Form,Row,Col,Card,Navbar,Nav} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faChevronLeft,faMapMarkerAlt,faInfoCircle, faArrowAltCircleLeft,faArrowAltCircleRight,faArrowAltCircleUp,faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faChevronLeft,faMapMarkerAlt,faVenusMars,faPhoneSquareAlt,faPhoneAlt,faInfoCircle, faArrowAltCircleLeft,faArrowAltCircleRight,faArrowAltCircleUp,faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
 
 class Profile extends Component {
   render() {
@@ -32,7 +32,7 @@ class Profile extends Component {
                           style={{cursor:"pointer"}}
                           />
                           {/* <Link to="index"> */}
-                            <h1 className="color nama-profile">porfile Pet </h1>
+                            <h1 className="color nama-profile">Profile Pet </h1>
                           {/* </Link> */}
                         </Col>
                       </Row>
@@ -40,82 +40,104 @@ class Profile extends Component {
                   </div>
                 </div>
 
-                <div className="panel-left-dash-opsi"><h3 className="color">Match</h3></div>
+                <div className="panel-left-dash-opsi account-setting">
+                  <h3 className="">Account Settings</h3>
+
+                  <div className="email-phone color-bg-white">
+                    <div className="email">
+                       <span>Email</span> 
+                       <span className="value-right">egi.ginting@gmail.com</span>
+                    </div>
+                    <hr/>
+                    <div className="phone">
+                       <span>Phone</span> 
+                       <span className="value-right">083896831233</span>
+                    </div>
+                  </div>
+                  <div className="discovery">
+                    <h3>Discovery Settings</h3>
+                  </div>
+                  <div className="discovery-setting">
+                    <div className="maximum-distant">
+                      <span>Maximum Distance </span>
+                      <span>10 km. </span>
+                    </div>
+                    <div className="discovery-range">
+                      <input type="range"/>
+                    </div>
+                    <div className="discovery-form">
+                    <Form>
+
+                      <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Age</Form.Label>
+                        <Form.Control type="text" placeholder="Adult" />
+                      </Form.Group>
+
+                      <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Species</Form.Label>
+                          <Form.Group controlId="formBasicPassword">
+                            <div class="form-group">
+                              <select class="form-control" name="" id="">
+                                <option>Pet</option>
+                              </select>
+                            </div>
+                          </Form.Group>
+                      </Form.Group>
+                      <div class=" justify-content-center d-flex">
+                       <Link to="/">
+                          <button className="discoveri-close color-bg">
+                            Close
+                          </button>
+                       </Link>
+                      </div>
+                    </Form>
+                    </div>
+                  </div>
+                </div>
+             
 
               </div>
             </Col>
             <Col md={8} className="panel-righ-dash">
               <div className="content-right-dash">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center settingprofile-panle-right">
                   <div class="col-md-6 justify-content-center d-flex">
 
-                  <Card border="light" className="card-swipe">
-                    <img src={require('../../assets/images/galery/5.jpeg')}
-                    className="d-inline-block align-top"
-                    alt="MyLogo"/>
-                    <div className="detail color-white">
-                      <h3>Mancaw</h3>
-                      <div class="row mt-3">
-                        <div class="col-md-10">
-                          <p ><FontAwesomeIcon icon={faUser} style={{marginRight:"4"}}/> Breeder : Haris Maulana</p>
-                          <p ><FontAwesomeIcon icon={faMapMarkerAlt} style={{marginRight:"4"}}/> 11 Kilometer dari sini </p>
-                        </div>
-                        <div class="col-md-2 info-icon-dash">
-                        <p><FontAwesomeIcon icon={faInfoCircle}/> </p>
+                  <Card className="card-swipe-profile-box">
+                    <div className="detail-user">
+
+                    <Card border="light" className="card-swipe-profile">
+                      <img src={require('../../assets/images/galery/5.jpeg')}
+                      className="d-inline-block align-top"
+                      alt="MyLogo"/>
+                        
+                    </Card>
+                    <div className="profile-setting-detail"  >
+                      <Card.Title className="profile-setting-detail-name">
+                        <span >Garry</span>
+                        <span className="color">Cat</span>
+                      </Card.Title>
+                      <Card.Text>
+                        
+                          <div className="scroll-detail-user">
+                            <p ><FontAwesomeIcon icon={faUser} style={{marginRight:"4"}}/> Breeder : Haris Maulana</p>
+                            <p ><FontAwesomeIcon icon={faMapMarkerAlt} style={{marginRight:"4"}}/> 10 Kilometer dari sini </p>                  
+                            <p ><FontAwesomeIcon icon={faVenusMars} style={{marginRight:"4"}}/> Male - Adult </p> 
+                            
+                            <p ><FontAwesomeIcon icon={faPhoneAlt} style={{marginRight:"4"}}/> Phone Breeder : 083896831233 </p> 
+                          </div>                 
+                        
+                      </Card.Text>
+                        <div class=" justify-content-center d-flex btn-scroll-detail-user">
+                          <button class="btn-reg color-bg">Edit</button>
                         </div>
                       </div>
                     </div>
                   </Card>
-
+                    <button class="btn-reg add-pet color-bg">Add pet</button>
                   </div>                  
                 </div>
               </div>
-
-              <div class="justify-content-center d-flex mt-3">
-
-                  <div className="img-select">
-                    <img src={require('../../assets/images/icon/reload.png')}
-                    alt="MyLogo"
-                    />
-                  </div>
-                  <div className="img-select-middle">
-                    <img src={require('../../assets/images/icon/disklove.png')}
-                    alt="MyLogo"
-                    />
-                  </div>
-                  <div className="img-select-middle">
-                    <img src={require('../../assets/images/icon/love.png')}
-                    alt="MyLogo"
-                    />
-                  </div>
-                  <div className="img-select">
-                  <img src={require('../../assets/images/icon/danger.png')}
-                    alt="MyLogo"
-                    />
-                  </div>
-
-              </div>
-
-              <div class="container footer-panel-dash justify-content-center d-flex">
-              <Navbar bg="" expand="lg" fixed="bottom" className="nav-dash" id="button-toggle">
-                <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle-nav-dash"/>
-                <Navbar.Collapse id="basic-navbar-nav" className="my-nav">
-                  <Nav className="">
-                    <Nav.Link href="" className="nav-hide">Hide</Nav.Link>
-                    <Nav.Link href=""><FontAwesomeIcon icon={faArrowAltCircleLeft}/>  No</Nav.Link>
-                    <Nav.Link href=""><FontAwesomeIcon icon={faArrowAltCircleRight}/>  Yes</Nav.Link>
-                    <Nav.Link href=""><FontAwesomeIcon icon={faArrowAltCircleUp}/>  Open Profil</Nav.Link>
-                    <Nav.Link href=""><FontAwesomeIcon icon={faArrowAltCircleDown}/>  Close Profile</Nav.Link>
-                   
-                      <input type="text" className="input-nav-dash" />
-                    
-                    <Nav.Link href="#">Next Photo</Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
-              </Navbar>
-
-              </div>
-
             </Col>
           </Row>
         </section>

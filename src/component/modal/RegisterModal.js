@@ -78,7 +78,7 @@ class RegisterModal extends Component {
 
     return (
           <>
-          <button className="btn-reg color-bg color" variant="outline-success" onClick={() => this.handleModal()}>
+          <button className="btn-reg color-bg color" onClick={() => this.handleModal()}>
             Register
           </button>
 
