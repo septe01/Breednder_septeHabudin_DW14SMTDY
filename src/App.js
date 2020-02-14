@@ -4,6 +4,7 @@ import Landing from './component/Landing';
 //dashboar
 import Index from './component/panel/Index'
 import Profile from './component/panel/Profile'
+import EditProfile from './component/panel/EditProfile'
 
 import './App.css';
 //Router
@@ -30,6 +31,9 @@ class App extends Component {
 
         <div className="">
           <Switch>
+            <Route path="/edit-profile">
+              <EditProfile/>
+            </Route>
             <Route path="/index">
               <Index/>
             </Route>
