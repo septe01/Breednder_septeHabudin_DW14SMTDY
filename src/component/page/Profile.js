@@ -30,7 +30,9 @@ class Profile extends Component {
                             <FontAwesomeIcon
                               icon={faChevronLeft}
                               style={{
-                                color: "rgba(0,0,0,.7)",
+                                color: "rgba(255, 255, 255)",
+                                filter:
+                                  "drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5))",
                                 marginLeft: "20",
                                 boxSizing: "border-box"
                               }}
@@ -50,7 +52,9 @@ class Profile extends Component {
                           style={{ cursor: "pointer" }}
                         />
                         {/* <Link to="index"> */}
-                        <h1 className="color nama-profile">Profile Pet </h1>
+                        <h1 className="color nama-profile fix-white">
+                          Profile Pet{" "}
+                        </h1>
                         {/* </Link> */}
                       </Col>
                     </Row>

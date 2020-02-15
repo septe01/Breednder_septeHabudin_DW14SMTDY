@@ -123,6 +123,8 @@ class Index extends Component {
     //   }
     // ];
 
+    console.log(Animals);
+
     // dataUser.map((usr)=>
     console.log(Animals);
     // )
@@ -150,13 +152,13 @@ class Index extends Component {
                             style={{ cursor: "pointer" }}
                           />
 
-                          <h1 className="color nama-profile">
+                          <h1 className="color-white nama-profile fix-white">
                             Gerry{" "}
                             <FontAwesomeIcon
                               icon={faChevronDown}
                               style={{
-                                color: "rgba(0,0,0,.7)",
-                                marginLeft: "20",
+                                color: "rgba(255, 255, 255)",
+                                marginLeft: "14",
                                 boxSizing: "border-box"
                               }}
                             />
@@ -168,7 +170,14 @@ class Index extends Component {
                 </div>
 
                 <div className="panel-left-dash-opsi">
-                  <h3 className="color">Match</h3>
+                  <h4
+                    style={{
+                      fontWeight: "900",
+                      filter: "drop-shadow(0px 0 1px rgba(0, 0, 0, 0.9))"
+                    }}
+                  >
+                    Match
+                  </h4>
                 </div>
 
                 <div className="panel-left-dash-body">

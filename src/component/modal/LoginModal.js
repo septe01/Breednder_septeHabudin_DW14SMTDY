@@ -60,7 +60,11 @@ function LoginModal() {
         Launch demo modal
       </Button> */}
 
-      <Button className=" btn-log color-bg color" onClick={handleShow}>
+      <Button
+        className=" btn-log color-bg color-white"
+        onClick={handleShow}
+        style={{ fontWeight: "1000" }}
+      >
         Login
       </Button>
 
@@ -91,14 +95,13 @@ function LoginModal() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
 
-                <Link to="index">
-                  <button
-                    className="btn-log-mdl color-bg color"
-                    variant="outline-success"
-                  >
-                    Login
-                  </button>
-                </Link>
+                <div className="justify-content-center d-flex">
+                  <Link to="index">
+                    <button className="discoveri-close color-bg mt-3">
+                      Login
+                    </button>
+                  </Link>
+                </div>
               </Form>
             </Col>
           </Row>

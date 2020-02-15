@@ -30,10 +30,7 @@ class RegisterModal extends Component {
 
     return (
       <>
-        <button
-          className="btn-reg color-bg color"
-          onClick={() => this.handleModal()}
-        >
+        <button className="btn-reg color-bg" onClick={() => this.handleModal()}>
           Register
         </button>
 
@@ -106,13 +103,11 @@ class RegisterModal extends Component {
                       ) : null}
                     </div>
                   ))}
-
-                  <button
-                    className="btn-log-mdl color-bg color"
-                    variant="outline-success"
-                  >
-                    Register
-                  </button>
+                  <div className="justify-content-center d-flex">
+                    <button className="discoveri-close color-bg mt-3">
+                      Register
+                    </button>
+                  </div>
                 </Form>
               </Col>
             </Row>

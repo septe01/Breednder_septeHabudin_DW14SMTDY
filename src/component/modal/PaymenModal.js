@@ -25,14 +25,24 @@ class PaymenModal extends Component {
   render() {
     return (
       <>
-        <Button
+        {/* <Button
           className="btn-reg color-bg color add-pet paymen-btn"
           style={{ borderRadius: "36px" }}
           onClick={() => this.handleModal()}
         >
           Add Pet
-        </Button>
+        </Button> */}
 
+        {/* <button className="btn-reg color-bg" onClick={() => this.handleModal()}>
+          Add Pet
+        </button> */}
+
+        <button
+          className="btn-reg color-bg paymen-btn"
+          onClick={() => this.handleModal()}
+        >
+          Add Pet
+        </button>
         <Modal show={this.state.show}>
           <Container fluid className="bg-modal-payment">
             <Row className="justify-content-md-center">
@@ -80,7 +90,7 @@ class PaymenModal extends Component {
                   </div>
                   <div className="justify-content-center d-flex mt-2">
                     <span
-                      className="btn-log-mdl color btn-paymen-save bold-7"
+                      className="btn-log-mdl color btn-paymen-save bold-7 color-white"
                       variant="outline-success"
                       onClick={() => this.hideModal()}
                     >
