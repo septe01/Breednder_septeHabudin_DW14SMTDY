@@ -25,18 +25,6 @@ class PaymenModal extends Component {
   render() {
     return (
       <>
-        {/* <Button
-          className="btn-reg color-bg color add-pet paymen-btn"
-          style={{ borderRadius: "36px" }}
-          onClick={() => this.handleModal()}
-        >
-          Add Pet
-        </Button> */}
-
-        {/* <button className="btn-reg color-bg" onClick={() => this.handleModal()}>
-          Add Pet
-        </button> */}
-
         <button
           className="btn-reg color-bg paymen-btn"
           onClick={() => this.handleModal()}
