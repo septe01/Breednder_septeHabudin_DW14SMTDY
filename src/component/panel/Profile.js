@@ -10,6 +10,8 @@ import {
   faPhoneAlt
 } from "@fortawesome/free-solid-svg-icons";
 
+import PaymenModal from "../modal/PaymenModal";
+
 class Profile extends Component {
   render() {
     return (
@@ -172,9 +174,10 @@ class Profile extends Component {
                         </div>
                       </div>
                     </Card>
-                    <button className="btn-reg add-pet color-bg">
+                    {/* <button className="btn-reg add-pet color-bg">
                       Add pet
-                    </button>
+                    </button> */}
+                    <PaymenModal />
                   </div>
                 </div>
               </div>
