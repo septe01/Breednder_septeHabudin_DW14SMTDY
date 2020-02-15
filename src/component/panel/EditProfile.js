@@ -84,7 +84,15 @@ class EditProfile extends Component {
                       <Form>
                         <Form.Group controlId="formBasicPassword">
                           <Form.Label>Age</Form.Label>
-                          <Form.Control type="text" placeholder="Adult" />
+                          <Form.Group controlId="formBasicPassword">
+                            <div className="form-group">
+                              <select className="form-control" name="" id="">
+                                <option>Child</option>
+                                <option>Teenager</option>
+                                <option>Adult</option>
+                              </select>
+                            </div>
+                          </Form.Group>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
@@ -93,6 +101,10 @@ class EditProfile extends Component {
                             <div className="form-group">
                               <select className="form-control" name="" id="">
                                 <option>Pet</option>
+                                <option>Dog</option>
+                                <option>Rabit</option>
+                                <option>Bird</option>
+                                <option>Sugar Glider</option>
                               </select>
                             </div>
                           </Form.Group>
@@ -329,46 +341,62 @@ class EditProfile extends Component {
                           </Row>
                         </div>
 
-                        <div className="profile-setting-detail">
+                        <div className="profile-setting-detail color-bg-grey card-setting-profile-height pt-2">
                           <Card.Title className="profile-setting-detail-name">
-                            <span>Name Pet</span>
+                            <h4>Name Pet</h4>
                             <span className="color"></span>
                           </Card.Title>
                           <Card.Text>
-                            <div className="scroll-detail-user">
-                              <p>
-                                <FontAwesomeIcon
-                                  icon={faUser}
-                                  style={{ marginRight: "4" }}
-                                />{" "}
-                                Breeder : Haris Maulana
-                              </p>
-                              <p>
-                                <FontAwesomeIcon
-                                  icon={faMapMarkerAlt}
-                                  style={{ marginRight: "4" }}
-                                />{" "}
-                                10 Kilometer dari sini{" "}
-                              </p>
-                              <p>
-                                <FontAwesomeIcon
-                                  icon={faVenusMars}
-                                  style={{ marginRight: "4" }}
-                                />{" "}
-                                Male - Adult{" "}
+                            <div className="scroll-detail-user detail-box-profile-mt">
+                              <p className="color-bg-white bg-white-sett-profile">
+                                Gary
                               </p>
 
-                              <p>
-                                <FontAwesomeIcon
-                                  icon={faPhoneAlt}
-                                  style={{ marginRight: "4" }}
-                                />{" "}
-                                Phone Breeder : 083896831233{" "}
-                              </p>
+                              <div className="colsetting">
+                                <h5 className="color-bg-grey  bg-white-sett-profile">
+                                  Breeder
+                                </h5>
+                                <p className="color-bg-white bg-white-sett-profile">
+                                  Egi Ginting
+                                </p>
+                              </div>
+
+                              <div className="colsetting">
+                                <h5 className="color-bg-grey  bg-white-sett-profile">
+                                  Gender
+                                </h5>
+                                <p className="color-bg-white bg-white-sett-profile">
+                                  Male
+                                </p>
+                              </div>
+
+                              <div className="colsetting">
+                                <h5 className="color-bg-grey  bg-white-sett-profile">
+                                  Age
+                                </h5>
+                                <p className="color-bg-white bg-white-sett-profile">
+                                  Adult
+                                </p>
+                              </div>
+                              <div className="colsetting">
+                                <h5 className="color-bg-grey  bg-white-sett-profile">
+                                  About Pet
+                                </h5>
+                                <p className="color-bg-white big-size">
+                                  is simply dummy text of the printing and
+                                  typesetting industry. Lorem Ipsum has been the
+                                  industry's standard dummy text ever since the
+                                  1500s, when an unknown printer took a galley
+                                  of type and scrambled it to make a type
+                                  specimen book.
+                                </p>
+                              </div>
                             </div>
                           </Card.Text>
                           <div className=" justify-content-center d-flex btn-scroll-detail-user">
-                            <button className="btn-reg color-bg">Save</button>
+                            <Link to="/profile">
+                              <button className="btn-reg color-bg">Save</button>
+                            </Link>
                           </div>
                         </div>
                       </div>

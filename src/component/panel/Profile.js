@@ -161,7 +161,10 @@ class Profile extends Component {
                               </p>
                             </div>
                           </Card.Text>
-                          <div className=" justify-content-center d-flex btn-scroll-detail-user">
+                          <div
+                            className=" justify-content-center d-flex btn-scroll-detail-user"
+                            id="transparent"
+                          >
                             <Link to="edit-profile">
                               <button className="btn-reg color-bg">Edit</button>
                             </Link>
