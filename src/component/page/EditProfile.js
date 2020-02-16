@@ -273,20 +273,20 @@ class EditProfile extends Component {
                                 />
                               </div>
                             </Col>
-                            <Col
+                            {/* <Col
                               md={"4"}
                               sm={"4"}
                               className="thumbnail-audio mt-3 box-card-setting-user"
-                            >
-                              <Card className="card-left-dash card-sizing-box">
+                            > */}
+                            {/* <Card className="card-left-dash card-sizing-box">
                                 <Card.Body className="card-thumb">
-                                  <div className="galery-tumbnail card-gelry-add">
-                                    {/* <img
+                                  <div className="galery-tumbnail card-gelry-add"> */}
+                            {/* <img
                                       src={require("../../assets/images/galery/2.jpeg")}
                                       className="d-inline-block align-top"
                                       alt="MyLogo"
                                     /> */}
-                                  </div>
+                            {/* </div>
                                 </Card.Body>
                               </Card>
                               <div className="close-add">
@@ -303,13 +303,13 @@ class EditProfile extends Component {
                             >
                               <Card className="card-left-dash card-sizing-box">
                                 <Card.Body className="card-thumb">
-                                  <div className="galery-tumbnail card-gelry-add">
-                                    {/* <img
+                                  <div className="galery-tumbnail card-gelry-add"> */}
+                            {/* <img
                                       src={require("../../assets/images/galery/2.jpeg")}
                                       className="d-inline-block align-top"
                                       alt="MyLogo"
                                     /> */}
-                                  </div>
+                            {/* </div>
                                 </Card.Body>
                               </Card>
                               <div className="close-add">
@@ -323,16 +323,16 @@ class EditProfile extends Component {
                               md={"4"}
                               sm={"4"}
                               className="thumbnail-audio mt-3 box-card-setting-user"
-                            >
-                              <Card className="card-left-dash card-sizing-box">
+                            > */}
+                            {/* <Card className="card-left-dash card-sizing-box">
                                 <Card.Body className="card-thumb">
-                                  <div className="galery-tumbnail card-gelry-add">
-                                    {/* <img
+                                  <div className="galery-tumbnail card-gelry-add"> */}
+                            {/* <img
                                       src={require("../../assets/images/galery/2.jpeg")}
                                       className="d-inline-block align-top"
                                       alt="MyLogo"
                                     /> */}
-                                  </div>
+                            {/* </div>
                                 </Card.Body>
                               </Card>
                               <div className="close-add">
@@ -341,7 +341,7 @@ class EditProfile extends Component {
                                   alt="close"
                                 />
                               </div>
-                            </Col>
+                            </Col> */}
                           </Row>
                         </div>
 
