@@ -59,8 +59,8 @@ h1.fix-white {
   color: rgb(255, 255, 255) !important;
 }
 
-.color {
-  color: rgba(0, 0, 0, 0.7) !important;
+.color-black {
+  color: rgba(0, 0, 0, 0.9) !important;
 }
 .color-white {
   color: rgba(255, 255, 255, 0.7) !important;
@@ -244,10 +244,12 @@ h1.fix-white {
 
 .panel-righ-dash {
   /* filter: drop-shadow(-5px 0 2px rgba(0,0,0,.7)); */
-  min-height: 100vh;
+  background-color: #007bff48;
+  height: 100vh;
+  overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   background-image: url("./assets/images/patterncat.jpg");
   position: relative;
   filter: drop-shadow(-2px 0 2px rgba(0, 0, 0, 0.4));
@@ -397,10 +399,21 @@ h1.fix-white {
 .detail {
   width: 100% !important;
   position: absolute;
-  bottom: 0;
-  padding: 2px 10px;
+  bottom: 0 !important;
+  padding: 2px;
+  padding-right: 10px;
   z-index: 1;
+  line-height: 100px !important;
   color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-user-select: none;
+}
+
+.detail-text-index-profile {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding-left: 10px;
+  padding-right: 14px;
 }
 
 .detail h3 {
@@ -653,11 +666,11 @@ div .maximum-distant span:nth-child(2) {
   height: 6px;
   cursor: pointer;
   box-shadow: 0px 0px 0px #000000;
-  background: linear-gradient(
+  /* background: linear-gradient(
     328.08deg,
     #f32121 0.82%,
     rgba(243, 33, 33, 0.23) 97.97%
-  );
+  ); */
   border-radius: 4px;
   border: 0px solid #000000;
 }
@@ -882,11 +895,12 @@ button {
 }
 
 .bg-white-sett-profile {
-  width: 106%;
+  width: 110% !important;
   padding-left: 10px;
   height: 36px;
   padding-top: 15px;
-  margin-left: -10px;
+  margin-left: -12px;
+  background-color: #fff !important;
 }
 
 .big-size {
@@ -981,6 +995,42 @@ span.btn-log-mdl:hover {
 span.value-right {
   text-align: right;
   float: right;
+}
+
+.wait-konfirm div.modal-content {
+  min-height: 80px !important;
+}
+.wait-konfirm div.modal-content h3 {
+  text-align: center;
+  line-height: 80px;
+  font-size: 24px;
+  color: #353535;
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.6));
+}
+
+/* editprofileform */
+div select.select-gender {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+select:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
 }
 
 /* .img-select-icon{

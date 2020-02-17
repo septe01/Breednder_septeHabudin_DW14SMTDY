@@ -7,41 +7,20 @@ import Modal from "react-bootstrap/Modal";
 class TransaksiModalSukses extends Component {
   constructor() {
     super();
-    this.state = {
-      show: false
-    };
-  }
-
-  handleModalTr() {
-    this.setState({ show: true });
-  }
-
-  hideModalTr() {
-    this.setState({ show: false });
+    this.state = {};
   }
 
   render() {
     return (
       <>
-        <span
-          className="btn-log-mdl color btn-paymen-save bold-7"
-          variant="outline-success"
-          onClick={() => this.hideModal().this.handleModalTr()}
+        <Modal
+          show={this.props.action}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          className="wait-konfirm"
         >
-          Kirim
-        </span>
-
-        <Modal show={this.state.show}>
-          <Container fluid>
-            <Row className="justify-content-md-center">
-              <Col md="12" className="head-modal">
-                <h1>Register</h1>
-                {/* <span className="close" onClick={() => this.hideModal()}>
-                  X
-                </span> */}
-              </Col>
-            </Row>
-          </Container>
+          <h3>Terimaskasih Silahkan Tunggu konfirmasi.</h3>
         </Modal>
       </>
     );

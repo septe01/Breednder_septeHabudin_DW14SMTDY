@@ -1,51 +1,7 @@
-// import React, { Component } from 'react';
-// import { Button, Modal,Container} from 'react-bootstrap';
-
-// class Login extends Component {
-//   constructor(){
-//     super()
-//     this.state = {
-//       show:false
-//     }
-//   }
-
-//   handleModal(){
-//     this.setState({show:true})
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//           <Button onClick={() => this.handleModal()}>Login</Button>
-//           <Modal show={ this.state.show }>
-//           <Container>
-
-//           </Container>
-//           </Modal>
-//       </div>
-//     );
-//   }
-// }
-
-// export default Login;
-
-// function Login() {
-//   const [show, setShow] = useState(false);
-
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-
-//   return (
-
-//   );
-// }
-
-// export default Login;
-
 import React, { useState } from "react";
 // import {Button,Modal} from './react/bootstrap';
-import { Button, Row, Col, Container, Form } from "react-bootstrap";
-import Modal from "react-bootstrap/Modal";
+import { Button, Row, Col, Container, Form, Modal } from "react-bootstrap";
+// import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 
 function LoginModal() {
@@ -56,10 +12,6 @@ function LoginModal() {
 
   return (
     <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
-
       <Button
         className=" btn-log color-bg color-white"
         onClick={handleShow}

@@ -3,10 +3,7 @@ import { Row, Col, Card, Nav } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUser,
   faChevronDown,
-  faMapMarkerAlt,
-  faInfoCircle,
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
   faArrowAltCircleUp,
@@ -17,120 +14,13 @@ import { Link } from "react-router-dom";
 
 // import data .json
 import Animals from "../../data/dataAnimal.json";
+import Deck from "./Deck.js";
 
 class Index extends Component {
   render() {
-    // const dataUser = [
-    //   {
-    //     id: 1,
-    //     nama: "meow",
-    //     image: "1.jpeg"
-    //   },
-    //   {
-    //     id: 2,
-    //     nama: "mumu",
-    //     image: "3.jpeg"
-    //   },
-    //   {
-    //     id: 3,
-    //     nama: "maow",
-    //     image: "5.jpeg"
-    //   },
-    //   {
-    //     id: 4,
-    //     nama: "moomu",
-    //     image: "2.jpeg"
-    //   },
-    //   {
-    //     id: 5,
-    //     nama: "mimi",
-    //     image: "5.jpeg"
-    //   },
-    //   {
-    //     id: 6,
-    //     nama: "mimiw",
-    //     image: "3.jpeg"
-    //   },
-    //   {
-    //     id: 7,
-    //     nama: "mimow",
-    //     image: "2.jpeg"
-    //   },
-    //   {
-    //     id: 8,
-    //     nama: "momew",
-    //     image: "1.jpeg"
-    //   },
-    //   {
-    //     id: 9,
-    //     nama: "mumuw",
-    //     image: "3.jpeg"
-    //   },
-    //   {
-    //     id: 10,
-    //     nama: "mimew",
-    //     image: "2.jpeg"
-    //   },
-    //   {
-    //     id: 11,
-    //     nama: "moew",
-    //     image: "1.jpeg"
-    //   },
-    //   {
-    //     id: 12,
-    //     nama: "mumuw",
-    //     image: "3.jpeg"
-    //   },
-    //   {
-    //     id: 13,
-    //     nama: "ma'aow",
-    //     image: "5.jpeg"
-    //   },
-    //   {
-    //     id: 14,
-    //     nama: "moomuw",
-    //     image: "2.jpeg"
-    //   },
-    //   {
-    //     id: 15,
-    //     nama: "mimil",
-    //     image: "5.jpeg"
-    //   },
-    //   {
-    //     id: 16,
-    //     nama: "momiw",
-    //     image: "3.jpeg"
-    //   },
-    //   {
-    //     id: 17,
-    //     nama: "mimow",
-    //     image: "2.jpeg"
-    //   },
-    //   {
-    //     id: 18,
-    //     nama: "meong",
-    //     image: "1.jpeg"
-    //   },
-    //   {
-    //     id: 19,
-    //     nama: "eong",
-    //     image: "3.jpeg"
-    //   },
-    //   {
-    //     id: 20,
-    //     nama: "memei",
-    //     image: "2.jpeg"
-    //   }
-    // ];
-
-    // console.log(Animals);
-
-    // dataUser.map((usr)=>
-    // )
     return (
       <div>
         <section className="container-dashboard">
-          {/* Stack the columns on mobile by making one full-width and the other half-width */}
           <Row>
             <Col md={4}>
               <div className="panel-left-dash">
@@ -206,45 +96,32 @@ class Index extends Component {
             <Col md={8} className="panel-righ-dash">
               <div className="content-right-dash">
                 <div className="row justify-content-center">
-                  <div className="col-md-6 justify-content-center d-flex">
-                    <Card border="light" className="card-swipe">
-                      <img
-                        src={require("../../assets/images/galery/5.jpeg")}
-                        className="d-inline-block align-top"
-                        alt="MyLogo"
-                      />
-                      <div className="detail color-white">
-                        <h3>Mancaw</h3>
-                        <div className="row mt-3">
-                          <div className="col-md-10">
-                            <p>
-                              <FontAwesomeIcon
-                                icon={faUser}
-                                style={{ marginRight: "4" }}
-                              />{" "}
-                              Breeder : Haris Maulana
-                            </p>
-                            <p>
-                              <FontAwesomeIcon
-                                icon={faMapMarkerAlt}
-                                style={{ marginRight: "4" }}
-                              />{" "}
-                              11 Kilometer dari sini{" "}
-                            </p>
-                          </div>
-                          <div className="col-md-2 info-icon-dash">
-                            <p>
-                              <FontAwesomeIcon icon={faInfoCircle} />{" "}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
+                  <div
+                    className="justify-content-center d-flex"
+                    style={{
+                      height: "580px",
+                      overflow: "hidden",
+                      width: "100%",
+                      position: "relative"
+                    }}
+                  >
+                    <div className="sweep">
+                      <Deck />
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="justify-content-center d-flex mt-3">
+              {/* option */}
+
+              <div
+                className="justify-content-center d-flex"
+                style={{
+                  marginTop: "-50px",
+                  zIndex: "3",
+                  position: "relative"
+                }}
+              >
                 <div className="img-select">
                   <img
                     src={require("../../assets/images/icon/reload.png")}
@@ -271,7 +148,10 @@ class Index extends Component {
                 </div>
               </div>
 
-              <div className="container footer-panel-dash justify-content-center d-flex">
+              <div
+                className="container footer-panel-dash justify-content-center d-flex"
+                style={{ marginTop: "-25px" }}
+              >
                 <Navbar
                   bg=""
                   expand="lg"

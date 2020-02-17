@@ -3,14 +3,18 @@ import { Button, Row, Col, Container, Form } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { Redirect } from "react-router-dom";
 
-// import TransaksiModalSukses from "./TransaksiModalSukses";
+import TransaksiModalSukses from "./TransaksiModalSukses";
 
 class PaymenModal extends Component {
   constructor() {
     super();
     this.state = {
-      show: false
+      show: false,
+      display: false,
+      pay: false,
+      timer: 3
     };
   }
 
@@ -18,13 +22,27 @@ class PaymenModal extends Component {
     this.setState({ show: true });
   }
 
-  hideModal() {
+  buttonKirim() {
+    this.setState({
+      show: false,
+      display: true
+    });
+
+    setTimeout(() => {
+      this.setState({
+        pay: true
+      });
+    }, 3000);
+  }
+
+  modalHide() {
     this.setState({ show: false });
   }
 
   render() {
     return (
       <>
+        {this.state.pay ? <Redirect to="/add-pet" /> : ""}
         <button
           className="btn-reg color-bg paymen-btn"
           onClick={() => this.handleModal()}
@@ -36,7 +54,7 @@ class PaymenModal extends Component {
             <Row className="justify-content-md-center">
               <Col md="12" className="head-modal">
                 <h1 className="title-color-modal">Premium</h1>
-                <span className="close" onClick={() => this.hideModal()}>
+                <span className="close" onClick={() => this.modalHide()}>
                   X
                 </span>
               </Col>
@@ -80,7 +98,7 @@ class PaymenModal extends Component {
                     <span
                       className="btn-log-mdl color btn-paymen-save bold-7 color-white"
                       variant="outline-success"
-                      onClick={() => this.hideModal()}
+                      onClick={() => this.buttonKirim()}
                     >
                       Kirim
                     </span>
@@ -90,6 +108,7 @@ class PaymenModal extends Component {
             </Row>
           </Container>
         </Modal>
+        <TransaksiModalSukses action={this.state.display} />
       </>
     );
   }

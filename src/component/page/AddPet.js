@@ -48,7 +48,7 @@ class AddPet extends Component {
                         />
                         {/* <Link to="index"> */}
                         <h1 className="color nama-profile fix-white">
-                          Edit Profile{" "}
+                          Add Pet{" "}
                         </h1>
                       </Col>
                     </Row>

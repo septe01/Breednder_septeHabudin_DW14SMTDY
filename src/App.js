@@ -5,10 +5,10 @@ import Landing from "./component/Landing";
 import Index from "./component/page/Index";
 import Profile from "./component/page/Profile";
 import EditProfile from "./component/page/EditProfile";
-
+import AddPet from "./component/page/AddPet";
 import "./App.css";
 //Router
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -16,6 +16,9 @@ class App extends Component {
       <Router>
         <div className="">
           <Switch>
+            <Route path="/add-pet">
+              <AddPet />
+            </Route>
             <Route path="/edit-profile">
               <EditProfile />
             </Route>
@@ -28,6 +31,9 @@ class App extends Component {
 
             <Route path="/">
               <Landing />
+              {/* <div className="sweep">
+                <Deck />
+              </div> */}
             </Route>
           </Switch>
         </div>
