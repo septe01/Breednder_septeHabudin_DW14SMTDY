@@ -66,7 +66,7 @@ class Inputrange extends Component {
                 <Form.Label>Species</Form.Label>
                 <Form.Group controlId="formBasicPassword">
                   <div className="form-group">
-                    <select class="form-control" name="" id="">
+                    <select className="form-control" name="" id="">
                       <option>Pet</option>
                     </select>
                   </div>

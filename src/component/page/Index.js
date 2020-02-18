@@ -72,12 +72,13 @@ class Index extends Component {
                 <div className="panel-left-dash-body">
                   <div className="list-user1">
                     <Row className="justify-content-left list-user2">
-                      {Animals.map(animal => (
+                      {Animals.map((animal, i) => (
                         <Col md={"4"} sm={"4"} className="thumbnail-audio mt-2">
                           <Card className="card-left-dash">
                             <Card.Body className="card-thumb">
                               <div className="galery-tumbnail">
                                 <img
+                                  key={i}
                                   src={animal.imgSrc}
                                   className="d-inline-block align-top"
                                   alt="MyLogo"

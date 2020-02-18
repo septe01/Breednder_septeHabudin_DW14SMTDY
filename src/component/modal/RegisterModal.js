@@ -96,13 +96,13 @@ class RegisterModal extends Component {
                   </Form.Group>
 
                   {/* {cars.map((car) => <p>{car}</p>)} */}
-                  {Spesies.map((Sp, index) => (
+                  {/* {Spesies.map((Sp, index) => (
                     <div>
                       {Sp.imgSrc ? (
                         <img key={index} src={Sp.imgSrc} alt="dumImg" />
                       ) : null}
                     </div>
-                  ))}
+                  ))} */}
                   <div className="justify-content-center d-flex">
                     <button className="discoveri-close color-bg mt-3">
                       Register
