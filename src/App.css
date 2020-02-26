@@ -19,6 +19,8 @@
   }
 }
 
+/* landing */
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -49,6 +51,13 @@
 
 p.slug {
   font-size: 24px;
+}
+
+.link {
+  cursor: pointer;
+}
+.link:hover {
+  color: rgba(0, 0, 0, 0.9) !important;
 }
 
 h1.find-trp {
@@ -1031,6 +1040,10 @@ label:focus,
   outline: 0px !important;
   -webkit-appearance: none;
   box-shadow: none !important;
+}
+
+.bg-white-sett-profile {
+  padding-top: 5 !important;
 }
 
 /* .img-select-icon{

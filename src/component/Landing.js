@@ -44,9 +44,10 @@ class Landing extends Component {
           <Row className="justify-content-md-center" style={{ marginTop: 20 }}>
             <Col md="10" className="color">
               <p className="head1-dashboard slug">
-                by clicking enter, you agree to <u>our terms.</u> Learn how we
-                process your data in our <u>Privacy Policy</u> and{" "}
-                <u>Cookie Policy.</u>
+                by clicking enter, you agree to{" "}
+                <u className="link">our terms.</u> Learn how we process your
+                data in our <u className="link">Privacy Policy</u> and{" "}
+                <u className="link">Cookie Policy.</u>
               </p>
             </Col>
           </Row>
@@ -66,3 +67,25 @@ class Landing extends Component {
 }
 
 export default Landing;
+
+// state = { visible: true }
+
+//   toggleVisibility = () =>
+//     this.setState((prevState) => ({ visible: !prevState.visible }))
+
+//   render() {
+//     const { visible } = this.state
+
+//     return (
+//       <div>
+//         <Button
+//           content={visible ? 'Hide' : 'Show'}
+//           onClick={this.toggleVisibility}
+//         />
+//         <Divider hidden />
+//         <Transition visible={visible} animation='scale' duration={500}>
+//           <Image size='small' src='/images/leaves/1.png' />
+//         </Transition>
+//       </div>
+//     )
+//   }

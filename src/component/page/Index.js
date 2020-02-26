@@ -78,7 +78,6 @@ class Index extends Component {
                             <Card.Body className="card-thumb">
                               <div className="galery-tumbnail">
                                 <img
-                                  key={i}
                                   src={animal.imgSrc}
                                   className="d-inline-block align-top"
                                   alt="MyLogo"
