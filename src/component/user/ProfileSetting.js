@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Form, Row, Col, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { getUser } from "../../_actions/userA";
+import { connect } from "react-redux";
 
 class Inputrange extends Component {
   constructor(props) {
@@ -13,7 +15,14 @@ class Inputrange extends Component {
   handleChange = event => {
     this.setState({ value: event.target.value });
   };
+
   render() {
+    const { data, isLoading, isError } = this.props.userR;
+    const profile = data.data;
+    let dataProfSetting = "";
+    if (profile != undefined) {
+      dataProfSetting = profile.userAut;
+    }
     return (
       <div className="panel-left-dash-opsi account-setting">
         <h3 className="">Account Settings</h3>
@@ -21,12 +30,12 @@ class Inputrange extends Component {
         <div className="email-phone color-bg-white">
           <div className="email">
             <span>Email</span>
-            <span className="value-right">egi.ginting@gmail.com</span>
+            <span className="value-right">{dataProfSetting.email}</span>
           </div>
           <hr />
           <div className="phone">
             <span>Phone</span>
-            <span className="value-right">083896831233</span>
+            <span className="value-right">{dataProfSetting.phone}</span>
           </div>
         </div>
         <div className="discovery">
@@ -82,7 +91,14 @@ class Inputrange extends Component {
         </div>
       </div>
     );
+    // }
   }
 }
 
-export default Inputrange;
+const mapStateToProps = state => {
+  return {
+    userR: state.userR
+  };
+};
+
+export default connect(mapStateToProps)(Inputrange);
