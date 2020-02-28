@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { API } from "../config/api";
 import { appContants } from "../config/AppConstants";
+
 export const getUser = users => {
   return {
     type: appContants.GET_USER,

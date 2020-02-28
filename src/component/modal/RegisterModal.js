@@ -92,7 +92,14 @@ class RegisterModal extends Component {
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="text" placeholder="Age Pet" />
+                    <div className="form-group">
+                      <select className="form-control" name="" id="">
+                        <option>Age</option>
+                        {Spesies.map((Sp, index) => (
+                          <option key={index}>{Sp.nama}</option>
+                        ))}
+                      </select>
+                    </div>
                   </Form.Group>
 
                   {/* {cars.map((car) => <p>{car}</p>)} */}

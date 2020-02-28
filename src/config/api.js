@@ -1,5 +1,5 @@
 // set config defaults when creating the instance
-const token = localStorage.getItem("userId");
+const token = localStorage.getItem("token");
 export const API = {
   baseURL: "https://breednder-api.herokuapp.com/api/v1",
   headers: {

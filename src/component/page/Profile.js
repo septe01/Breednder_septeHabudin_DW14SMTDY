@@ -30,7 +30,27 @@ class Profile extends Component {
       // console.log(profile.userAut.breeder);
     }
     if (isLoading) {
-      return <h1>Loading...</h1>;
+      return (
+        <img
+          src={process.env.PUBLIC_URL + "/assets/images/loader2.gif"}
+          width="300"
+          height="250"
+          className="d-inline-block align-top"
+          alt="MyLogo"
+          style={{
+            borderRadius: "5",
+            position: "fixed",
+            top: "0",
+            bottom: "0",
+            left: "0",
+            right: "0",
+            width: "560px",
+            height: "400px",
+            margin: "auto"
+          }}
+          // filter: "drop-shadow(2px 1px 1px black)"
+        />
+      );
     } else if (data) {
       return (
         <div>
