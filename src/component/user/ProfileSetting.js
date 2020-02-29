@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Form, Row, Col, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { getUser } from "../../_actions/userA";
+import { Form } from "react-bootstrap";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Inputrange extends Component {
@@ -16,12 +15,20 @@ class Inputrange extends Component {
     this.setState({ value: event.target.value });
   };
 
+  handleClose = event => {
+    // event.preventDefault();
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      localStorage.removeItem("token");
+      return <Redirect to="/" />;
+    }
+    window.location.reload(false);
+  };
+
   render() {
-    const { data, isLoading, isError } = this.props.userR;
-    const profile = data.data;
-    let dataProfSetting = "";
-    if (profile != undefined) {
-      dataProfSetting = profile.userAut;
+    let dataUsr = "";
+    if (this.props.userR.getUserByID.userAut) {
+      dataUsr = this.props.userR.getUserByID.userAut;
     }
     return (
       <div className="panel-left-dash-opsi account-setting">
@@ -30,12 +37,12 @@ class Inputrange extends Component {
         <div className="email-phone color-bg-white">
           <div className="email">
             <span>Email</span>
-            <span className="value-right">{dataProfSetting.email}</span>
+            <span className="value-right">{dataUsr.email}</span>
           </div>
           <hr />
           <div className="phone">
             <span>Phone</span>
-            <span className="value-right">{dataProfSetting.phone}</span>
+            <span className="value-right">{dataUsr.phone}</span>
           </div>
         </div>
         <div className="discovery">
@@ -82,9 +89,14 @@ class Inputrange extends Component {
                 </Form.Group>
               </Form.Group>
               <div className=" justify-content-center d-flex">
-                <Link to="/">
-                  <button className="discoveri-close color-bg">Close</button>
-                </Link>
+                {/* <Link to="/logout"> */}
+                <button
+                  className="discoveri-close color-bg"
+                  onClick={this.handleClose}
+                >
+                  Close
+                </button>
+                {/* </Link> */}
               </div>
             </Form>
           </div>

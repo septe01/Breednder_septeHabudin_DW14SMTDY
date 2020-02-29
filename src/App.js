@@ -6,6 +6,7 @@ import Index from "./component/page/Index";
 import Profile from "./component/page/Profile";
 import EditProfile from "./component/page/EditProfile";
 import AddPet from "./component/page/AddPet";
+
 import "./App.css";
 //Router
 import {
@@ -22,10 +23,10 @@ class App extends Component {
     return (
       <Router>
         <div className="">
-          {token ? <Redirect to="/index" /> : <Redirect to="/" />}
+          {token ? <Redirect to="/home" /> : <Redirect to="/" />}
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/index" component={authenticatedPage(Index)} />
+            <Route exact path="/home" component={authenticatedPage(Index)} />
             <Route
               exact
               path="/profile"

@@ -1,7 +1,7 @@
 import { appContants } from "../config/AppConstants";
 
 const initialState = {
-  data: [],
+  getUserByID: [],
   isLoading: false,
   isError: false
 };
@@ -16,13 +16,13 @@ const users = (state = initialState, action) => {
     case appContants.GET_USER_FULFILLED:
       return {
         ...state,
-        data: action.payload,
+        getUserByID: action.payload.data,
         isLoading: false
       };
     case appContants.GET_USER_REJECTED:
       return {
         ...state,
-        data: action.payload.data,
+        getUserByID: action.payload,
         isLoading: false,
         isError: true
       };

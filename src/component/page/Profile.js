@@ -22,13 +22,12 @@ class Profile extends Component {
   }
 
   render() {
-    const { data, isLoading, isError } = this.props.userR;
-    const profile = data.data;
-    let dataProfile = "";
-    if (profile != undefined) {
-      dataProfile = profile.userAut;
-      // console.log(profile.userAut.breeder);
+    const { getUserByID, isLoading, isError } = this.props.userR;
+    let dataUser = "";
+    if (getUserByID.userAut) {
+      dataUser = getUserByID.userAut;
     }
+
     if (isLoading) {
       return (
         <img
@@ -48,10 +47,9 @@ class Profile extends Component {
             height: "400px",
             margin: "auto"
           }}
-          // filter: "drop-shadow(2px 1px 1px black)"
         />
       );
-    } else if (data) {
+    } else if (getUserByID) {
       return (
         <div>
           <section className="container-dashboard">
@@ -63,7 +61,7 @@ class Profile extends Component {
                     <div className="profile">
                       <Row>
                         <Col md={"auto"}>
-                          <Link to="index">
+                          <Link to="home">
                             <h1 className="arrow-back">
                               <FontAwesomeIcon
                                 icon={faChevronLeft}
@@ -99,7 +97,8 @@ class Profile extends Component {
                     </div>
                   </div>
                   {/* profile stting */}
-                  <ProfileSetting data={this.props.userR} />
+                  {/* <ProfileSetting data={this.props.userR} /> */}
+                  <ProfileSetting data={this.dataUser} />
                 </div>
               </Col>
               <Col md={8} className="panel-righ-dash">
@@ -128,7 +127,7 @@ class Profile extends Component {
                                     icon={faUser}
                                     style={{ marginRight: "4" }}
                                   />{" "}
-                                  Breeder : {dataProfile.breeder}
+                                  Breeder : {dataUser.email}
                                 </p>
                                 <p>
                                   <FontAwesomeIcon
@@ -150,7 +149,7 @@ class Profile extends Component {
                                     icon={faPhoneAlt}
                                     style={{ marginRight: "4" }}
                                   />{" "}
-                                  Phone Breeder : {dataProfile.phone}
+                                  Phone Breeder : {dataUser.phone}
                                 </p>
                               </div>
                             </Card.Text>

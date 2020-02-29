@@ -51,38 +51,74 @@ class RegisterModal extends Component {
               <Col md="11" className="body-modal">
                 <Form>
                   <Form.Group controlId="formBasicUser">
-                    <Form.Control type="text" placeholder="Breeder" />
+                    <Form.Control
+                      type="text"
+                      name="breeder"
+                      placeholder="Breeder"
+                    />
                     {/* <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                       </Form.Text> */}
                   </Form.Group>
 
                   <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Email" />
+                    <Form.Control
+                      email="email"
+                      type="email"
+                      placeholder="Email"
+                    />
                     {/* <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                       </Form.Text> */}
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control
+                      name="password"
+                      type="password"
+                      placeholder="Password"
+                    />
                   </Form.Group>
 
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="phone" placeholder="Phone Breeder" />
+                  <Form.Group controlId="formBasicPhone">
+                    <Form.Control
+                      name="phone"
+                      type="phone"
+                      placeholder="Phone Breeder"
+                    />
                   </Form.Group>
 
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="text" placeholder="Address Breeder" />
+                  <Form.Group controlId="formBasicAddress">
+                    <Form.Control
+                      name="address"
+                      type="text"
+                      placeholder="Address Breeder"
+                      as="textarea"
+                      rows="3"
+                    />
                   </Form.Group>
 
-                  <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="text" placeholder="Name Pet" />
+                  <Form.Group controlId="formBasicName">
+                    <Form.Control
+                      name="name"
+                      type="text"
+                      placeholder="Name Pet"
+                    />
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
                     <div className="form-group">
-                      <select className="form-control" name="" id="">
+                      <select className="form-control" name="gender" id="">
+                        <option>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </Form.Group>
+
+                  <Form.Group controlId="formBasicPassword">
+                    <div className="form-group">
+                      <select className="form-control" name="idSpecies" id="">
                         <option>Spesies Pet</option>
                         {Spesies.map((Sp, index) => (
                           <option key={index}>{Sp.nama}</option>
@@ -90,10 +126,9 @@ class RegisterModal extends Component {
                       </select>
                     </div>
                   </Form.Group>
-
-                  <Form.Group controlId="formBasicPassword">
+                  <Form.Group controlId="formBasicAge">
                     <div className="form-group">
-                      <select className="form-control" name="" id="">
+                      <select className="form-control" name="idAge" id="Age">
                         <option>Age</option>
                         {Spesies.map((Sp, index) => (
                           <option key={index}>{Sp.nama}</option>
@@ -101,15 +136,6 @@ class RegisterModal extends Component {
                       </select>
                     </div>
                   </Form.Group>
-
-                  {/* {cars.map((car) => <p>{car}</p>)} */}
-                  {/* {Spesies.map((Sp, index) => (
-                    <div>
-                      {Sp.imgSrc ? (
-                        <img key={index} src={Sp.imgSrc} alt="dumImg" />
-                      ) : null}
-                    </div>
-                  ))} */}
                   <div className="justify-content-center d-flex">
                     <button className="discoveri-close color-bg mt-3">
                       Register
