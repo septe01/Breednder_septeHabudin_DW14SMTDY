@@ -8,15 +8,41 @@ import EditProfile from "./component/page/EditProfile";
 import AddPet from "./component/page/AddPet";
 import "./App.css";
 //Router
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import { authenticatedPage } from "./config/authenticatedPage";
 
 class App extends Component {
   render() {
+    const token = localStorage.getItem("token");
     return (
       <Router>
         <div className="">
+          {token ? <Redirect to="/index" /> : <Redirect to="/" />}
           <Switch>
-            <Route path="/add-pet">
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/index" component={authenticatedPage(Index)} />
+            <Route
+              exact
+              path="/profile"
+              component={authenticatedPage(Profile)}
+            />
+            <Route
+              exact
+              path="/edit-profile"
+              component={authenticatedPage(EditProfile)}
+            />
+            <Route
+              exact
+              path="/add-pet"
+              component={authenticatedPage(AddPet)}
+            />
+
+            {/* <Route path="/add-pet">
               <AddPet />
             </Route>
             <Route path="/edit-profile">
@@ -28,13 +54,9 @@ class App extends Component {
             <Route path="/profile">
               <Profile />
             </Route>
-
             <Route path="/">
               <Landing />
-              {/* <div className="sweep">
-                <Deck />
-              </div> */}
-            </Route>
+            </Route> */}
           </Switch>
         </div>
       </Router>
