@@ -80,6 +80,7 @@ class LoginModal extends Component {
       });
     }
   };
+
   render() {
     return (
       <>

@@ -4,9 +4,13 @@ import { promise, logger } from "./middleware";
 
 //reducers
 import userR from "../_reducers/userR";
+import speciesR from "../_reducers/speciesR";
+import ageR from "../_reducers/ageR";
 
 const reducers = combineReducers({
-  userR
+  userR,
+  speciesR,
+  ageR
 });
 
 const store = createStore(reducers, applyMiddleware(promise, logger));

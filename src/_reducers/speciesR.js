@@ -16,7 +16,7 @@ const species = (state = initialState, action) => {
     case appContants.GET_SPECIES_FULFILLED:
       return {
         ...state,
-        indexSpecies: action.payload,
+        indexSpecies: action.payload.data,
         isLoading: false
       };
     case appContants.GET_SPECIES_REJECTED:
