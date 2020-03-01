@@ -1046,6 +1046,24 @@ label:focus,
   padding-top: 5 !important;
 }
 
+div.select-pet {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  z-index: 2;
+  width: 70%;
+  height: 250px;
+  overflow: hidden !important;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8);
+}
+
+div.box-select-pet {
+  width: 102%;
+  height: 256px;
+  overflow: scroll;
+}
+
 /* .img-select-icon{
   line-height: inherit;
   width: 30px !important;

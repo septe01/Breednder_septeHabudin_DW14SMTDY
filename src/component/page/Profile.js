@@ -22,6 +22,8 @@ class Profile extends Component {
   }
 
   render() {
+    const token = localStorage.getItem("token");
+    console.log(`Bearer ${token}`);
     const { getUserByID, isLoading, isError } = this.props.userR;
     let dataUser = "";
     if (getUserByID.userAut) {

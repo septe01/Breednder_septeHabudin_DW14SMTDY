@@ -6,11 +6,13 @@ import { promise, logger } from "./middleware";
 import userR from "../_reducers/userR";
 import speciesR from "../_reducers/speciesR";
 import ageR from "../_reducers/ageR";
+import petR from "../_reducers/petR";
 
 const reducers = combineReducers({
   userR,
   speciesR,
-  ageR
+  ageR,
+  petR
 });
 
 const store = createStore(reducers, applyMiddleware(promise, logger));

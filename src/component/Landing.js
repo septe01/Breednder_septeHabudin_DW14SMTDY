@@ -4,9 +4,15 @@ import Container from "react-bootstrap/Container";
 // import Modal from 'react-bootstrap/Modal'
 import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
+import { connect } from "react-redux";
+
+import { getPets } from "../_actions/petA";
 // import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class Landing extends Component {
+  componentDidMount() {
+    this.props.getPets();
+  }
   render() {
     return (
       <div className="App-header image">
@@ -58,34 +64,9 @@ class Landing extends Component {
         <Container fluid className="footer color-bg">
           <h1 className="head1-dashboard find-trp">FIND YOUR PET’S MATCH</h1>
         </Container>
-
-        {/* </div>
-        </div> */}
       </div>
     );
   }
 }
 
 export default Landing;
-
-// state = { visible: true }
-
-//   toggleVisibility = () =>
-//     this.setState((prevState) => ({ visible: !prevState.visible }))
-
-//   render() {
-//     const { visible } = this.state
-
-//     return (
-//       <div>
-//         <Button
-//           content={visible ? 'Hide' : 'Show'}
-//           onClick={this.toggleVisibility}
-//         />
-//         <Divider hidden />
-//         <Transition visible={visible} animation='scale' duration={500}>
-//           <Image size='small' src='/images/leaves/1.png' />
-//         </Transition>
-//       </div>
-//     )
-//   }

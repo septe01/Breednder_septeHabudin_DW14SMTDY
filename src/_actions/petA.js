@@ -1,15 +1,22 @@
-// import axios from "axios";
+import axios from "axios";
 
-// import { API } from "../config/api";
-// export const getUser = users => {
+import { API } from "../config/api";
+import { appContants } from "../config/AppConstants";
+
+export const getPets = () => {
+  //get all data pet
+  return {
+    type: appContants.GET_PET,
+    payload: axios({
+      method: "GET",
+      url: `${API.baseURL}/pet`,
+      headers: API.headers
+    })
+  };
+};
+
+// export const petDetail = () => {
 //   return {
-//     type: "GET_USER",
-//     payload: axios({
-//       method: "GET",
-//       url: `${API.baseURL}/userAuth`,
-//       headers: API.headers
-//     })
+//     type: appContants.GET_PET_DETAIL
 //   };
 // };
-
-// export const getPet = pets

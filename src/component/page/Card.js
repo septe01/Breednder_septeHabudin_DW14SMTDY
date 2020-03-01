@@ -17,7 +17,7 @@ import {
 class Card extends React.Component {
   render() {
     const { i, x, y, rot, scale, trans, bind, data } = this.props;
-    const { namaPeliharaan, pemilik, radius, pics } = data[i];
+    const { petName, breeder, radius, pics } = data[i];
 
     return (
       <animated.div
@@ -43,7 +43,7 @@ class Card extends React.Component {
             {/* detail color-white detail-text-index-profile*/}
             <div className="detail color-white">
               <div className="detail-text-index-profile">
-                <h3>{namaPeliharaan}</h3>
+                <h3>{petName}</h3>
                 <div className="row mt-3">
                   <div className="col-md-10">
                     <p>
@@ -51,7 +51,7 @@ class Card extends React.Component {
                         icon={faUser}
                         style={{ marginRight: "4" }}
                       />{" "}
-                      Pemilik : {pemilik}
+                      Pemilik : {breeder}
                     </p>
                     <p>
                       <FontAwesomeIcon

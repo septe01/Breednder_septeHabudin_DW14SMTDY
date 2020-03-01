@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Card, Nav } from "react-bootstrap";
+import { Row, Col, Card, Nav, ListGroup } from "react-bootstrap";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,13 +11,49 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+// data
+import { getPets } from "../../_actions/petA";
 
 // import data .json
 import Animals from "../../data/dataAnimal.json";
 import Deck from "./Deck.js";
+import { connect } from "react-redux";
 
 class Index extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      show: false
+    };
+  }
+  componentDidMount() {
+    this.props.getPets();
+  }
+
+  showSelectPet = () => {
+    this.setState({
+      show: !this.state.show
+    });
+  };
   render() {
+    const { isLoading } = this.props.petR;
+    let dataPet = this.props.petR.indexPet.data;
+    // console.log(dataPet);
+    let data = [];
+    if (dataPet) {
+      for (let i = 0; i < dataPet.length; i++) {
+        // console.log(dataPet[i].name);
+        data.push({
+          pics: [dataPet[i].photo],
+          petName: dataPet[i].name,
+          breeder: dataPet[i].user.breeder,
+          radius: `${(i + 1) * 8} from here`
+        });
+      }
+    }
+
+    // const { indexPet, isLoading } = this.props.petR;
+    // console.log(indexPet);
     return (
       <div>
         <section className="container-dashboard">
@@ -26,9 +62,9 @@ class Index extends Component {
               <div className="panel-left-dash">
                 <div className="panel-left-dash-header">
                   <div className="profile">
-                    <Link to="/profile">
-                      <Row>
-                        <Col md={"auto"}>
+                    <Row>
+                      <Col md={"auto"}>
+                        <Link to="/profile">
                           <img
                             src={
                               process.env.PUBLIC_URL +
@@ -40,21 +76,54 @@ class Index extends Component {
                             alt="MyLogo"
                             style={{ cursor: "pointer" }}
                           />
+                        </Link>
 
-                          <h1 className="color-white nama-profile fix-white">
-                            Gerry{" "}
-                            <FontAwesomeIcon
-                              icon={faChevronDown}
-                              style={{
-                                color: "rgba(255, 255, 255)",
-                                marginLeft: "14",
-                                boxSizing: "border-box"
-                              }}
-                            />
-                          </h1>
-                        </Col>
-                      </Row>
-                    </Link>
+                        <h1
+                          className="color-white nama-profile fix-white"
+                          onClick={this.showSelectPet}
+                        >
+                          Gerry{" "}
+                          <FontAwesomeIcon
+                            icon={faChevronDown}
+                            style={{
+                              color: "rgba(255, 255, 255)",
+                              marginLeft: "14",
+                              boxSizing: "border-box"
+                            }}
+                          />
+                        </h1>
+                      </Col>
+                      {this.state.show ? (
+                        <div className="select-pet">
+                          <div className="box-select-pet">
+                            <ListGroup>
+                              <ListGroup.Item>Cras justo odio</ListGroup.Item>
+                              <ListGroup.Item>
+                                Dapibus ac facilisis in
+                              </ListGroup.Item>
+                              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+                              <ListGroup.Item>
+                                Porta ac consectetur ac
+                              </ListGroup.Item>
+                              <ListGroup.Item>
+                                Vestibulum at eros
+                              </ListGroup.Item>
+                              <ListGroup.Item>
+                                Vestibulum at eros
+                              </ListGroup.Item>
+                              <ListGroup.Item>
+                                Vestibulum at eros
+                              </ListGroup.Item>
+                              <ListGroup.Item>
+                                Vestibulum at eros
+                              </ListGroup.Item>
+                            </ListGroup>
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </Row>
                   </div>
                 </div>
 
@@ -106,7 +175,31 @@ class Index extends Component {
                     }}
                   >
                     <div className="sweep">
-                      <Deck />
+                      {isLoading ? (
+                        <img
+                          src={
+                            process.env.PUBLIC_URL +
+                            "/assets/images/loader2.gif"
+                          }
+                          width="300"
+                          height="250"
+                          className="d-inline-block align-top"
+                          alt="MyLogo"
+                          style={{
+                            borderRadius: "5",
+                            position: "fixed",
+                            top: "0",
+                            bottom: "0",
+                            left: "0",
+                            right: "0",
+                            width: "560px",
+                            height: "400px",
+                            margin: "auto"
+                          }}
+                        />
+                      ) : (
+                        <Deck data={data} />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -193,9 +286,20 @@ class Index extends Component {
             </Col>
           </Row>
         </section>
+        {/* {console.log(this.props.petR.indexPet.data)} */}
       </div>
     );
   }
 }
 
-export default Index;
+const mapStateToProps = state => {
+  return {
+    petR: state.petR
+  };
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    getPets: () => dispatch(getPets())
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

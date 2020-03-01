@@ -47,3 +47,15 @@ export default [
     radius: "6 Km dari sini"
   }
 ];
+
+// const mapStateToProps = state => {
+//   return {
+//     petR: state.petR
+//   };
+// };
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getPets: () => dispatch(getPets())
+//   };
+// };
+// export default connect(mapStateToProps, mapDispatchToProps)(Index);
