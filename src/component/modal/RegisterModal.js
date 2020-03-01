@@ -7,6 +7,8 @@ import Spesies from "../../data/dataUser.json";
 import { connect } from "react-redux";
 import { getSpecies } from "./../../_actions/speciesA";
 import { getAge } from "../../_actions/ageA";
+import Axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class RegisterModal extends Component {
   constructor() {
@@ -22,7 +24,20 @@ class RegisterModal extends Component {
       gender: "",
       about: "",
       idSpecies: "",
-      idAge: ""
+      idAge: "",
+
+      redirect: false,
+
+      errbreeder: "",
+      erremail: "",
+      errpassword: "",
+      errphone: "",
+      erraddress: "",
+      errname: "",
+      errgender: "",
+      errabout: "",
+      errspecies: "",
+      errage: ""
     };
   }
 
@@ -47,50 +62,154 @@ class RegisterModal extends Component {
     e.preventDefault();
 
     // valildate
-    let error = "";
-
-    console.log(
-      this.state.breeder,
-      this.state.email,
-      this.state.password,
-      this.state.phone,
-      this.state.address,
-      this.state.name,
-      this.state.gender,
-      this.state.about,
-      this.state.idSpecies,
-      this.state.idAge
+    //validate email
+    const validEmailRegex = RegExp(
+      /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
     );
-
     if (this.state.breeder != "") {
-      error = "ok";
-    } else {
-      error = "breeder required !";
-    }
-
-    const regData = {
-      breeder: this.state.breeder,
-      email: this.state.email,
-      password: this.state.password,
-      phone: this.state.phone,
-      address: this.state.address,
-      pet: {
-        name: this.state.name,
-        gender: this.state.gender,
-        about: this.state.about,
-        spesies: {
-          id: this.state.idSpecies
-        },
-        age: {
-          id: this.state.idAge
+      this.setState({
+        errbreeder: ""
+      });
+      if (this.state.email != "") {
+        this.setState({
+          erremail: ""
+        });
+        if (validEmailRegex.test(this.state.email)) {
+          this.setState({
+            erremail: ""
+          });
+          if (this.state.password != "") {
+            this.setState({
+              errpassword: ""
+            });
+            if (this.state.password.length < 6) {
+              this.setState({
+                errpassword: ""
+              });
+              if (this.state.address != "") {
+                this.setState({
+                  erraddress: ""
+                });
+                if (this.state.name != "") {
+                  this.setState({
+                    errname: ""
+                  });
+                  if (this.state.gender != "") {
+                    this.setState({
+                      errgender: ""
+                    });
+                    if (this.state.about != "") {
+                      this.setState({
+                        errabout: ""
+                      });
+                      if (this.state.idSpecies != "") {
+                        this.setState({
+                          errspecies: ""
+                        });
+                        if (this.state.idAge) {
+                          this.setState({
+                            errage: ""
+                          });
+                          // --- send data to server
+                          const regData = {
+                            breeder: this.state.breeder[0],
+                            email: this.state.email[0],
+                            password: this.state.password[0],
+                            phone: this.state.phone[0],
+                            address: this.state.address[0],
+                            pet: {
+                              name: this.state.name[0],
+                              gender: this.state.gender[0],
+                              about_pet: this.state.about[0],
+                              spesies: {
+                                id: this.state.idSpecies[0]
+                              },
+                              age: {
+                                id: this.state.idAge[0]
+                              }
+                            }
+                          };
+                          // http://localhost:5001/api/v1/register
+                          // https://breednder-api.herokuapp.com/api/v1/register
+                          Axios.post(
+                            "https://breednder-api.herokuapp.com/api/v1/register",
+                            regData
+                          ).then(response => {
+                            if (typeof response.data.token !== "undefined") {
+                              localStorage.setItem(
+                                "token",
+                                response.data.token
+                              );
+                              this.setState({
+                                redirect: true
+                              });
+                              window.location.reload(false);
+                            }
+                            this.setState({
+                              erremail: response.data.message
+                            });
+                          });
+                        } else {
+                          this.setState({
+                            errage: "age required !"
+                          });
+                        }
+                      } else {
+                        this.setState({
+                          errspecies: "species required !"
+                        });
+                      }
+                    } else {
+                      this.setState({
+                        errabout: "about required !"
+                      });
+                    }
+                  } else {
+                    this.setState({
+                      errgender: "gender required !"
+                    });
+                  }
+                } else {
+                  this.setState({
+                    errname: "name pet required !"
+                  });
+                }
+              } else {
+                this.setState({
+                  erraddress: "address required !"
+                });
+              }
+            } else {
+              this.setState({
+                errpassword: "password minimum 6 charackter !"
+              });
+            }
+          } else {
+            this.setState({
+              errpassword: "password required !"
+            });
+          }
+        } else {
+          this.setState({
+            erremail: "email not valid"
+          });
         }
+      } else {
+        this.setState({
+          erremail: "email required !"
+        });
       }
-    };
+    } else {
+      this.setState({
+        errbreeder: "breeder required !"
+      });
+    }
   };
 
   render() {
     return (
       <>
+        {this.state.redirect ? <Redirect to="/home" /> : ""}
         <button className="btn-reg color-bg" onClick={() => this.handleModal()}>
           Register
         </button>
@@ -118,21 +237,21 @@ class RegisterModal extends Component {
                       placeholder="Breeder"
                       onChange={this.handleChange}
                     />
-                    <Form.Text className="text-muted">
-                      {this.error == "breeder required !" ? "asdfas" : null}
+                    <Form.Text className="text-danger">
+                      {this.state.errbreeder ? this.state.errbreeder : ""}
                     </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicEmail">
                     <Form.Control
                       name="email"
-                      type="email"
+                      type="text"
                       placeholder="Email"
                       onChange={this.handleChange}
                     />
-                    {/* <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                      </Form.Text> */}
+                    <Form.Text className="text-danger">
+                      {this.state.erremail ? this.state.erremail : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
@@ -142,6 +261,9 @@ class RegisterModal extends Component {
                       placeholder="Password"
                       onChange={this.handleChange}
                     />
+                    <Form.Text className="text-danger">
+                      {this.state.errpassword ? this.state.errpassword : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPhone">
@@ -151,6 +273,9 @@ class RegisterModal extends Component {
                       placeholder="Phone Breeder"
                       onChange={this.handleChange}
                     />
+                    <Form.Text className="text-danger">
+                      {this.state.errphone ? this.state.errphone : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicAddress">
@@ -162,6 +287,9 @@ class RegisterModal extends Component {
                       rows="3"
                       onChange={this.handleChange}
                     />
+                    <Form.Text className="text-danger">
+                      {this.state.erraddress ? this.state.erraddress : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicName">
@@ -171,6 +299,9 @@ class RegisterModal extends Component {
                       placeholder="Name Pet"
                       onChange={this.handleChange}
                     />
+                    <Form.Text className="text-danger">
+                      {this.state.errname ? this.state.errname : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicGender">
@@ -186,6 +317,9 @@ class RegisterModal extends Component {
                         <option value="female">Female</option>
                       </select>
                     </div>
+                    <Form.Text className="text-danger">
+                      {this.state.errgender ? this.state.errgender : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicAbout">
@@ -197,6 +331,9 @@ class RegisterModal extends Component {
                       rows="3"
                       onChange={this.handleChange}
                     />
+                    <Form.Text className="text-danger">
+                      {this.state.errabout ? this.state.errabout : ""}
+                    </Form.Text>
                   </Form.Group>
 
                   <Form.Group controlId="formBasicPassword">
@@ -217,7 +354,11 @@ class RegisterModal extends Component {
                           : null}
                       </select>
                     </div>
+                    <Form.Text className="text-danger">
+                      {this.state.errspecies ? this.state.errspecies : ""}
+                    </Form.Text>
                   </Form.Group>
+
                   <Form.Group controlId="formBasicAge">
                     <div className="form-group">
                       <select
@@ -240,6 +381,9 @@ class RegisterModal extends Component {
                           : null}
                       </select>
                     </div>
+                    <Form.Text className="text-danger">
+                      {this.state.errage ? this.state.errage : ""}
+                    </Form.Text>
                   </Form.Group>
                   <div className="justify-content-center d-flex">
                     <button
