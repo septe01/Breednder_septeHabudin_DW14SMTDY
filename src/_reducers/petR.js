@@ -2,7 +2,8 @@ import { appContants } from "../config/AppConstants";
 
 const initialState = {
   indexPet: [],
-  pets: [],
+  indexPetByUser: [],
+  // pets: [],
   isLoading: false,
   isError: false
 };
@@ -15,7 +16,6 @@ const pet = (state = initialState, action) => {
         isLoading: true
       };
     case appContants.GET_PET_FULFILLED:
-      state.pets.push(action.payload);
       return {
         ...state,
         indexPet: action.payload,
@@ -24,6 +24,25 @@ const pet = (state = initialState, action) => {
     case appContants.GET_PET_REJECTED:
       return {
         indexPet: action.payload,
+        isLoading: false
+      };
+
+    // getALLPetsByUser
+    case appContants.GET_PETBYUSER_PENDING:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case appContants.GET_PETBYUSER_FULFILLED:
+      return {
+        ...state,
+        indexPetByUser: action.payload.data,
+        isLoading: false
+      };
+    case appContants.GET_PETBYUSER_REJECTED:
+      return {
+        ...state,
+        indexPetByUser: action.payload,
         isLoading: false
       };
     default:

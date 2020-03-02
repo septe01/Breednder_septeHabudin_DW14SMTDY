@@ -13,6 +13,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 // data
 import { getPets } from "../../_actions/petA";
+import { getPetsByUser } from "../../_actions/petA";
 
 // import data .json
 import Animals from "../../data/dataAnimal.json";
@@ -28,17 +29,28 @@ class Index extends Component {
   }
   componentDidMount() {
     this.props.getPets();
+    this.props.getPetsByUser();
   }
 
-  showSelectPet = () => {
+  showSelectPet = e => {
+    e.preventDefault();
     this.setState({
       show: !this.state.show
     });
   };
+  onHandleClick = e => {
+    // e.preventDefault();
+    console.log(e);
+  };
+
   render() {
+    // let petList = document.getElementById('petlist');
+    // petList.addEventListener("click", alert("ok"));
+
     const { isLoading } = this.props.petR;
     let dataPet = this.props.petR.indexPet.data;
-    // console.log(dataPet);
+    let dataPetByUserId = this.props.petR.indexPetByUser;
+
     let data = [];
     if (dataPet) {
       for (let i = 0; i < dataPet.length; i++) {
@@ -97,26 +109,26 @@ class Index extends Component {
                         <div className="select-pet">
                           <div className="box-select-pet">
                             <ListGroup>
-                              <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                              <ListGroup.Item>
-                                Dapibus ac facilisis in
-                              </ListGroup.Item>
-                              <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                              <ListGroup.Item>
-                                Porta ac consectetur ac
-                              </ListGroup.Item>
-                              <ListGroup.Item>
-                                Vestibulum at eros
-                              </ListGroup.Item>
-                              <ListGroup.Item>
-                                Vestibulum at eros
-                              </ListGroup.Item>
-                              <ListGroup.Item>
-                                Vestibulum at eros
-                              </ListGroup.Item>
-                              <ListGroup.Item>
-                                Vestibulum at eros
-                              </ListGroup.Item>
+                              {dataPetByUserId
+                                ? dataPetByUserId.map((val, i) => (
+                                    // console.log(val)
+                                    <ListGroup.Item
+                                      className="item-pet"
+                                      key={i}
+                                    >
+                                      <div>
+                                        <h4
+                                          id="petlist"
+                                          onClick={() =>
+                                            this.onHandleClick(val.id)
+                                          }
+                                        >
+                                          {val.name}
+                                        </h4>
+                                      </div>
+                                    </ListGroup.Item>
+                                  ))
+                                : ""}
                             </ListGroup>
                           </div>
                         </div>
@@ -179,11 +191,11 @@ class Index extends Component {
                         <img
                           src={
                             process.env.PUBLIC_URL +
-                            "/assets/images/loader2.gif"
+                            "/assets/images/loader3.png"
                           }
                           width="300"
                           height="250"
-                          className="d-inline-block align-top"
+                          className="d-inline-block align-top loader"
                           alt="MyLogo"
                           style={{
                             borderRadius: "5",
@@ -192,8 +204,8 @@ class Index extends Component {
                             bottom: "0",
                             left: "0",
                             right: "0",
-                            width: "560px",
-                            height: "400px",
+                            width: "200px",
+                            height: "200px",
                             margin: "auto"
                           }}
                         />
@@ -299,7 +311,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getPets: () => dispatch(getPets())
+    getPets: () => dispatch(getPets()),
+    getPetsByUser: () => dispatch(getPetsByUser())
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Index);

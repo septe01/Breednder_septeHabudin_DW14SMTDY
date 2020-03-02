@@ -6,13 +6,9 @@ import LoginModal from "./modal/LoginModal";
 import RegisterModal from "./modal/RegisterModal";
 import { connect } from "react-redux";
 
-import { getPets } from "../_actions/petA";
 // import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class Landing extends Component {
-  componentDidMount() {
-    this.props.getPets();
-  }
   render() {
     return (
       <div className="App-header image">
