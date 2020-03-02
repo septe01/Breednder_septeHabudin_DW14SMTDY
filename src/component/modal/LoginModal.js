@@ -12,7 +12,8 @@ class LoginModal extends Component {
       redirect: false,
       password: "",
       errmail: "",
-      errpassword: ""
+      errpassword: "",
+      loader: true
     };
   }
 
@@ -41,6 +42,9 @@ class LoginModal extends Component {
         this.setState({
           errpassword: ""
         });
+        this.setState({
+          loader: false
+        });
         await Axios.post(
           "https://breednder-api.herokuapp.com/api/v1/login",
           userLogin
@@ -49,7 +53,8 @@ class LoginModal extends Component {
             if (typeof response.data.token !== "undefined") {
               localStorage.setItem("token", response.data.token);
               this.setState({
-                redirect: true
+                redirect: true,
+                loader: !this.state.loader
               });
               window.location.reload(false);
             }
@@ -140,11 +145,34 @@ class LoginModal extends Component {
 
                   <div className="justify-content-center d-flex">
                     {/* <Link to="index"> */}
+
                     <button
                       className="discoveri-close color-bg mt-3"
                       type="submit"
                     >
                       Login
+                      {this.state.loader ? (
+                        ""
+                      ) : (
+                        <img
+                          src={
+                            process.env.PUBLIC_URL +
+                            "/assets/images/loader3.png"
+                          }
+                          width="300"
+                          height="250"
+                          className="d-inline-block align-top loader"
+                          alt="MyLogo"
+                          style={{
+                            filter: "drop-shadow(0px 0px 2px black)",
+                            position: "fixed",
+                            right: "10px",
+                            width: "25px",
+                            height: "25px",
+                            margin: "auto"
+                          }}
+                        />
+                      )}
                     </button>
                     {/* </Link> */}
                   </div>
