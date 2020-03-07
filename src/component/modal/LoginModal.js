@@ -161,7 +161,7 @@ class LoginModal extends Component {
                           }
                           width="300"
                           height="250"
-                          className="d-inline-block align-top loader"
+                          className="d-inline-block align-top loader-min"
                           alt="MyLogo"
                           style={{
                             filter: "drop-shadow(0px 0px 2px black)",
